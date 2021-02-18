@@ -1,0 +1,44 @@
+<div class="row m-3 align-items-center justify-content-start">
+  <div class="col-sm">
+    <div class="display-4">Tarefas</div>
+  </div>
+  <div class="col-sm text-right">
+    <button type="button" class="btn btn-primary btn-lg" routerLink="/Cadastro" >+ Nova</button>
+  </div>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Cadastro</th>
+      <th scope="col">Entrega</th>
+      <th scope="col">Situação</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Descricao</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let tarefa of tarefas">
+      <td>
+          <p><small>{{tarefa.DtCadastro}}</small></p>
+      </td>
+    <td>
+        <p><small>{{tarefa.DtEntrega}}</small></p>
+    </td>
+      <td>
+        <p [ngClass]="classSituacao(tarefa.Situacao)">{{tarefa.Situacao}}</p>
+      </td>
+      <td>{{tarefa.Empresa}}</td>
+      <td>
+          <h6>{{tarefa.Titulo }}</h6>
+          <p [ngClass]="classTachado(tarefa.Situacao)" ><small>{{tarefa.Descricao}}</small></p>
+      </td>
+      <td>
+        <div class="list-inline-item" *ngFor="let pessoa of tarefa.Pessoas" >
+          <a href="#" class="badge badge-secondary">{{pessoa.Nome}}</a>
+        </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
