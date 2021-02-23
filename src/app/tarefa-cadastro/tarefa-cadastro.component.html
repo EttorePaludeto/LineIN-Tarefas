@@ -1,3 +1,35 @@
-<p>
-  tarefa-cadastro works!
-</p>
+<form class="form-horizontal" [formGroup]="tarefa" (ngSubmit)="onSubmit()">
+<div class="form-group">
+  <div class="col-sm-3">
+    <label for="DtCadastro" class="control-label">Data Cadastro</label>
+  </div>
+  <div class="col-sm-3">
+    <input type="text" formControlName="DtCadastro" class="form-control">
+  </div>
+  <div class="col-sm-3">
+    <label for="DtEntrega" class="control-label">Data Entrega</label>
+  </div>
+  <div class="col-sm-3">
+    <input type="text" formControlName="DtEntrega" class="form-control">
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="col-sm-12">
+    <label for="Empresa" class="control-label">Empresa</label>
+  </div>
+  <div class="col-sm-12">
+    <input type="text" formControlName="Empresa" class="form-control">
+  </div>
+
+ 
+
+</div>
+
+<button type="submit" class="btn btn-primary" >Enviar</button>
+
+<app-form-debug [form]="tarefa"></app-form-debug>
+
+</form>
+

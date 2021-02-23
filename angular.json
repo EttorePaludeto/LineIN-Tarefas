@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "LineIn-Tarefas"
+  "defaultProject": "LineIn-Tarefas",
+  "cli": {
+    "analytics": false
+  }
 }

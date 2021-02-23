@@ -1,0 +1,8 @@
+<div class="container">
+<div class="mt-5" *ngIf="form">
+    <div class="h5">Detalhes</div>
+    <pre class="alert alert-secondary">Form válido: {{ form.valid }}</pre>
+    <pre class="alert alert-secondary">Form submetido: {{ form.submitted }}</pre>
+    <pre class="alert alert-secondary">Valores: <br> {{ form.value | json }}</pre>
+</div>
+</div>
