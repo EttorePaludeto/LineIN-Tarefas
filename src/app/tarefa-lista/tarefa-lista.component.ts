@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as tarefasJson from '../tarefas.json'
+import { Router } from '@angular/router';
+import * as tarefasJson from '../../assets/tarefas.json'
 
 @Component({
   selector: 'app-tarefa-lista',
@@ -8,7 +9,7 @@ import * as tarefasJson from '../tarefas.json'
 })
 export class TarefaListaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   title = 'LineIn-Tarefas';
   tarefas: any = (tarefasJson as any).default;
@@ -26,10 +27,21 @@ classTachado(situacao)
   if (situacao=="Fechada") return "txtTachado";
 }
 
+addTarefa() {
+  this.router.navigate(['/NovaTarefa'])
+}
+
+editTarefa(id:number){
+  this.router.navigate(['/EditarTarefa', id])
+}
+
+
+
+
 
 ngOnInit()
 {
-  console.log(this.tarefas);
+ 
 }
 
 }

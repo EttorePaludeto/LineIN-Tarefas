@@ -7,7 +7,8 @@ import { TarefaListaComponent } from './tarefa-lista/tarefa-lista.component';
 const routes: Routes = [
 {path: '', component: TarefaListaComponent},
 {path: 'Lista', component: TarefaListaComponent},
-{path: 'Cadastro', component: TarefaCadastroComponent}
+{path: 'NovaTarefa', component: TarefaCadastroComponent},
+{path: 'EditarTarefa/:id', component: TarefaCadastroComponent}
 
 ];
 

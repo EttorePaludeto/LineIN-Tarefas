@@ -1,35 +1,66 @@
-<form class="form-horizontal" [formGroup]="tarefa" (ngSubmit)="onSubmit()">
-<div class="form-group">
-  <div class="col-sm-3">
-    <label for="DtCadastro" class="control-label">Data Cadastro</label>
-  </div>
-  <div class="col-sm-3">
-    <input type="text" formControlName="DtCadastro" class="form-control">
-  </div>
-  <div class="col-sm-3">
-    <label for="DtEntrega" class="control-label">Data Entrega</label>
-  </div>
-  <div class="col-sm-3">
-    <input type="text" formControlName="DtEntrega" class="form-control">
-  </div>
-</div>
+<form class="container" [formGroup]="formTarefa" (ngSubmit)="onSubmit()">
 
+  <h1 class="display-4 mb-5" *ngIf="isAddMode">Nova Tarefa</h1>
+  <h1 class="display-4 mb-5" *ngIf="!isAddMode">Editar Tarefa nº {{this.id}}</h1>
 
-<div class="form-group">
-  <div class="col-sm-12">
-    <label for="Empresa" class="control-label">Empresa</label>
-  </div>
-  <div class="col-sm-12">
-    <input type="text" formControlName="Empresa" class="form-control">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Empresa" class="control-label">Empresa</label>
+      <input type="text" formControlName="Empresa" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Pessoas" class="control-label">Pessoas</label>
+      <input type="text" formControlName="Pessoas" class="form-control">
+    </div>
   </div>
 
- 
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="DtCadastro" class="control-label">Data Cadastro</label>
+      <input type="text" formControlName="DtCadastro" class="form-control">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="DtEntrega" class="control-label">Data Entrega</label>
+        <input type="text" formControlName="DtEntrega" class="form-control">
+    </div>
+    <div class="form-group col-md-8">
+      <label for="Titulo" class="control-label">Título</label>
+      <input type="text" formControlName="Titulo" class="form-control">
+    </div>
+ </div>
 
-</div>
 
-<button type="submit" class="btn btn-primary" >Enviar</button>
+ <div class="form-row">
+  <div class="form-group col-md-12">
+    <label for="Descricao" class="control-label">Descrição</label>
+    <textarea type="text" rows=4 formControlName="Descricao" class="form-control" ></textarea>
+  </div>
+ </div>
 
-<app-form-debug [form]="tarefa"></app-form-debug>
+ <div class="form-row">
+  <div class="form-group col-md-2">
+    <label for="Situacao" class="control-label">Situação</label>
+    <select class="custom-select" formControlName="Situacao" id="inputGroupSelect01">
+      <option value="Aberta">Aberta</option>
+      <option value="Movimento">Movimento</option>
+      <option value="Fechada">Fechada</option>
+    </select>
+  </div>
+ </div>
+
+ <div class="form-row">
+  <div class="form-group col-md-6">
+    <button type="submit" class="btn btn-primary mr-2" >Enviar</button>
+
+    <button type="submit" class="btn btn-danger ml-2" routerLink='/'>Cancelar</button>
+  </div>
+ </div>
+
+ <div class="form-row">
+   <div class="form-group col-md-12">
+     <app-form-debug [form]="formTarefa"></app-form-debug>
+    </div>
+ </div>
 
 </form>
 
